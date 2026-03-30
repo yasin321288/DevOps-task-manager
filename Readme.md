@@ -117,3 +117,79 @@ After rebuilding the Docker image, the application built and ran successfully.
 #### Containers Running
 ![Containers](docs/phase4/containers.png)
 
+---
+
+# 📌 Phase 5: AWS EC2 Deployment (Cloud Setup)
+
+### 🎯 Objective
+Deploy the containerized full-stack application to a cloud environment and make it accessible over the internet.
+
+---
+
+### ✅ Implementations
+
+- Created an AWS EC2 instance (Ubuntu, t3.micro - Free Tier)
+- Configured security group with required ports:
+  - 22 (SSH)
+  - 80 (HTTP)
+  - 3000 (Frontend)
+  - 5000 (Backend)
+- Established secure SSH connection using key pair (.pem)
+- Installed Docker and Docker Compose on EC2 instance
+- Pushed complete project to GitHub repository
+- Resolved Git submodule issue (frontend nested repo fix)
+- Cloned project from GitHub into EC2
+- Built and deployed multi-container application using Docker Compose
+- Verified inter-container communication (frontend ↔ backend)
+- Exposed application via EC2 public IP
+
+---
+
+### 🌐 Live Application
+
+http://13.232.56.252:3000
+
+
+
+### 📸 Screenshots
+
+#### 🔹 EC2 Instance Running
+![EC2](docs/phase5/ec2-running.png)
+
+#### 🔹 Docker Installed
+![Docker](docs/phase5/docker-installed.png)
+
+#### 🔹 Docker Compose Installed
+![Compose](docs/phase5/docker-compose-installed.png)
+
+#### 🔹 Repository Cloned
+![Repo](docs/phase5/repo-cloned.png)
+
+#### 🔹 Security Group Configuration
+![Security](docs/phase5/security-group-fixed.png)
+
+#### 🔹 Key Pair Setup
+![KeyPair](docs/phase5/keypair.png)
+
+#### 🔹 Running Containers
+![Containers](docs/phase5/containers-running.png)
+
+#### 🔹 Live Application
+![Live](docs/phase5/live-app.png)
+
+
+### ⚠️ Challenges Faced
+
+- Faced Docker build failure due to missing frontend Dockerfile
+- Encountered Git submodule issue where frontend was treated as a separate repository
+- Resolved by removing nested `.git` and re-adding frontend as a normal directory
+- Handled OS-specific command differences (Linux vs PowerShell)
+
+
+### 💡 Key Learnings
+
+- Real-world cloud deployment using AWS EC2
+- Dockerized application deployment in production-like environment
+- Importance of correct Git structure (avoiding submodules unintentionally)
+- Networking concepts (ports, security groups, public access)
+- Debugging deployment issues in remote environments

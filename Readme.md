@@ -40,17 +40,7 @@ DevOps:
 ---
 
 ## 🚀 Final Architecture
-User
-↓
-NGINX (Reverse Proxy)
-↓
-Docker Containers (Frontend + Backend)
-↓
-Jenkins (CI/CD Pipeline)
-↓
-Docker Hub (Image Registry)
-↓
-GitHub (Source Code)
+User → NGINX → Docker (Frontend + Backend) → Jenkins → Docker Hub → GitHub
 
 ![App](docs/phase9/final-architecture.png)
 
@@ -234,9 +224,6 @@ Deploy the containerized full-stack application to a cloud environment and make 
 - Verified inter-container communication (frontend ↔ backend)
 - Exposed application via EC2 public IP
 
-### 🌐 Live Application
-
-http://13.232.56.252:3000
 
 ### 📸 Screenshots
 
@@ -307,9 +294,6 @@ Convert the application from a development setup (multiple exposed ports) into a
 -Enabled clean URL access via port 80 (no port in browser)
 -Verified end-to-end communication through NGINX
 
-### 🌐 Live Application
-
-http://3.110.41.183
 
 ### 📸 Screenshots
 
@@ -529,7 +513,6 @@ Removed:
 
 ---
 
----
 
 # 🎯 Final Outcome
 
@@ -561,14 +544,9 @@ This project demonstrates a **complete DevOps lifecycle**, including:
 
 ---
 
-# 🧠 What Makes This Project Strong
+## 📈 Impact
 
-- Covers complete DevOps pipeline (not just one tool)
-- Demonstrates real-world debugging experience
-- Follows industry practices (CI/CD, reverse proxy, containerization)
-- Shows understanding of both development and deployment
-
----
+This project demonstrates practical DevOps skills required in real-world environments, including automation, deployment, and debugging of distributed systems.
 
 
 

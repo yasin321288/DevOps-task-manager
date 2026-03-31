@@ -1,10 +1,10 @@
-# 🚀 DevOps Task Manager
+# DevOps Task Manager
 
 A production-ready full-stack application demonstrating **end-to-end DevOps practices**, including containerization, cloud deployment, reverse proxy configuration, and CI/CD automation.
 
 ---
 
-## 🧠 Project Overview
+## Project Overview
 
 This project showcases how a modern application is built, containerized, deployed to the cloud, and automated using CI/CD pipelines.
 
@@ -21,7 +21,7 @@ It follows a **phase-wise DevOps approach**, covering:
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 Frontend:
 - Next.js
@@ -39,7 +39,7 @@ DevOps:
 
 ---
 
-## 🚀 Final Architecture
+## Final Architecture
 User → NGINX → Docker (Frontend + Backend) → Jenkins → Docker Hub → GitHub
 
 ![App](docs/phase9/final-architecture.png)
@@ -47,7 +47,7 @@ User → NGINX → Docker (Frontend + Backend) → Jenkins → Docker Hub → Gi
 
 ---
 
-## 🔁 CI/CD Workflow
+## CI/CD Workflow
 Developer → git push
 ↓
 GitHub Repository
@@ -60,7 +60,7 @@ Docker Hub Push
 ↓
 Docker Compose Deployment
 ↓
-Application Running 🚀
+Application Running 
 
 
 ![App](docs/phase9/ci-cd-flow.png)
@@ -68,16 +68,16 @@ Application Running 🚀
 
 ---
 
-# 📌 Phase 1: Basic Setup
+# Phase 1: Basic Setup
 
-### ✅ Implementations
+### Implementations
 
 - Built frontend using Next.js
 - Built backend using Node.js (Express)
 - Created REST API for task management
 - Connected frontend with backend
 
-### 📸 Screenshots
+### Screenshots
 
 #### Frontend Running
 
@@ -97,15 +97,15 @@ Application Running 🚀
 
 ---
 
-# 📌 Phase 2: Backend Refactoring & Persistence
+# Phase 2: Backend Refactoring & Persistence
 
-### ✅ Implementations
+###  Implementations
 
 - Refactored backend into MVC structure (controllers, routes)
 - Implemented file-based persistence using JSON
 - Ensured tasks persist after server restart
 
-### 📸 Screenshots
+### Screenshots
 
 #### Backend Structure
 
@@ -121,15 +121,15 @@ Application Running 🚀
 
 ---
 
-# 📌 Phase 3: Dockerization 🐳
+#  Phase 3: Dockerization 
 
-### ✅ Implementations
+### Implementations
 
 - Containerized frontend and backend using Docker
 - Created separate Dockerfiles for both services
 - Built Docker images and ran containers locally
 
-### 📸 Screenshots
+### Screenshots
 
 #### Backend Container Running
 
@@ -141,19 +141,19 @@ Application Running 🚀
 
 ---
 
-# ⚠️ Challenges Faced & Fixes
+# Challenges Faced & Fixes
 
-## ❌ Issue: Node.js Version Mismatch
+## Issue: Node.js Version Mismatch
 
 While building the frontend Docker image, the build failed due to incompatible Node.js version.
 
-### 📸 Error Screenshot
+### Error Screenshot
 
 ![Docker Build Error](docs/phase3/frontend-error.png)
 
 ---
 
-## 🔍 Root Cause
+## Root Cause
 
 The Dockerfile was using an outdated base image:
 
@@ -176,9 +176,9 @@ After rebuilding the Docker image, the application built and ran successfully.
 
 ---
 
-# 📌 Phase 4: Docker Compose (Multi-Container Setup)
+# Phase 4: Docker Compose (Multi-Container Setup)
 
-### ✅ Implementations
+### Implementations
 
 - Created docker-compose.yml to manage multiple services
 - Connected frontend and backend containers using Docker network
@@ -201,13 +201,13 @@ After rebuilding the Docker image, the application built and ran successfully.
 
 ---
 
-# 📌 Phase 5: AWS EC2 Deployment (Cloud Setup)
+# Phase 5: AWS EC2 Deployment (Cloud Setup)
 
-### 🎯 Objective
+### Objective
 
 Deploy the containerized full-stack application to a cloud environment and make it accessible over the internet.
 
-### ✅ Implementations
+### Implementations
 
 - Created an AWS EC2 instance (Ubuntu, t3.micro - Free Tier)
 - Configured security group with required ports:
@@ -225,7 +225,7 @@ Deploy the containerized full-stack application to a cloud environment and make 
 - Exposed application via EC2 public IP
 
 
-### 📸 Screenshots
+### Screenshots
 
 #### 🔹 EC2 Instance Running
 
@@ -259,7 +259,7 @@ Deploy the containerized full-stack application to a cloud environment and make 
 
 ![Live](docs/phase5/live-app.png)
 
-### ⚠️ Challenges Faced
+### Challenges Faced
 
 - Faced Docker build failure due to missing frontend Dockerfile
 - Encountered Git submodule issue where frontend was treated as a separate repository
@@ -277,7 +277,7 @@ Deploy the containerized full-stack application to a cloud environment and make 
 
 ---
 
-# 📌 Phase 6: NGINX Reverse Proxy (Production Routing)
+# Phase 6: NGINX Reverse Proxy (Production Routing)
 
 ### objective
 
@@ -295,7 +295,7 @@ Convert the application from a development setup (multiple exposed ports) into a
 -Verified end-to-end communication through NGINX
 
 
-### 📸 Screenshots
+### Screenshots
 
 ####🔹 NGINX Installed
 ![NGINX](docs/phase6/nginx-installed.png)
@@ -312,13 +312,13 @@ Convert the application from a development setup (multiple exposed ports) into a
 ####🔹 Final Application (No Port Access)
 ![NGINX](docs/phase6/final-app-nginx.png)
 
-### ⚠️ Challenges Faced
+### Challenges Faced
 
 -Faced issue where frontend could not fetch data due to incorrect API base URL
 -Encountered environment variable conflicts in Docker setup
 -Observed Cannot GET /api confusion due to missing root route in backend
 
-### 🔍 Fixes Applied
+### Fixes Applied
 
 -Replaced API base URL with:
 const API_BASE = "/api";
@@ -331,7 +331,7 @@ const API_BASE = "/api";
     docker-compose down
     docker-compose up --build -d
 
-### 💡 Key Learnings
+### Key Learnings
 
 -Understanding of reverse proxy architecture using NGINX
 -Difference between development vs production deployments
@@ -340,13 +340,13 @@ const API_BASE = "/api";
 -Real-world debugging of deployment, networking, and Git conflicts
 -Separation of application layer and infrastructure layer
 
-### 🧠 Architecture After Phase 6
+### Architecture After Phase 6
 
 ![NGINX](docs/phase6/architechture.png)
 
 ---
 
-# 📌 Phase 7: Jenkins CI/CD with Docker Hub
+# Phase 7: Jenkins CI/CD with Docker Hub
 
 ### Objective
 
@@ -365,11 +365,11 @@ Automate the build and deployment process using Jenkins by integrating Docker an
 -Installed docker-compose inside Jenkins container
 -Handled container lifecycle during deployment
 
-### ⚙️ CI/CD Flow
+### CI/CD Flow
 
 GitHub → Jenkins → Build → Docker Hub → Deploy Containers
 
-### 📸 Screenshots
+### Screenshots
 
 #### 🔹 Docker Installed inside Jenkins
 
@@ -397,7 +397,7 @@ GitHub → Jenkins → Build → Docker Hub → Deploy Containers
 ####🔹 Final Running Containers After Jenkins Build
 ![Jenkins](docs/phase7/final-running-containers-after-jenkins-build.png)
 
-### ⚠️ Challenges Faced
+### Challenges Faced
 
 -Jenkins could not connect to Docker daemon
 -docker-compose command not found inside Jenkins container
@@ -406,7 +406,7 @@ GitHub → Jenkins → Build → Docker Hub → Deploy Containers
 -Git branch mismatch issue (master vs main)
 -Docker images not tagged correctly for Docker Hub
 
-### 🔍 Fixes Applied
+### Fixes Applied
 
 -Connected Jenkins to host Docker using docker.sock:
 -v /var/run/docker.sock:/var/run/docker.sock
@@ -429,7 +429,7 @@ docker rm $(docker ps -aq)
 docker-compose down --remove-orphans || true
 docker-compose up -d --build
 
-### 💡 Key Learnings
+### Key Learnings
 
 -Understanding of CI/CD pipeline using Jenkins
 -Integration of Docker with Jenkins using docker.sock
@@ -439,7 +439,7 @@ docker-compose up -d --build
 -Docker image lifecycle (build → tag → push → deploy)
 -Debugging pipeline failures step-by-step
 
-### 🚀 Outcome
+### Outcome
 
 -A fully automated CI/CD pipeline
 -Docker images built and pushed to Docker Hub
@@ -448,7 +448,7 @@ docker-compose up -d --build
 
 ---
 
-# 📌 Phase 8: Production Polish (AWS Cleanup & Finalization)
+# Phase 8: Production Polish (AWS Cleanup & Finalization)
 
 ### objective
 Finalize the project by cleaning cloud resources, securing the deployment, and ensuring a production-ready architecture while optimizing cost.
@@ -462,13 +462,13 @@ Finalize the project by cleaning cloud resources, securing the deployment, and e
 -Cleaned up AWS resources after successful testing
 -Terminated EC2 instance to avoid unnecessary costs
 
-### ⚠️ Challenges Faced
+### Challenges Faced
 -Understanding which ports should remain open in production
 -Ensuring backend is not directly exposed
 -Maintaining deployment stability after multiple rebuilds
 -Deciding when to terminate cloud resources without losing project proof
 
-### 🔍 Fixes Applied
+### Fixes Applied
 -Updated AWS Security Group:
 
 Allowed:
@@ -497,7 +497,7 @@ Removed:
 
 -Terminated EC2 instance after validation
 
-### 💡 Key Learnings
+### Key Learnings
 -Importance of securing production deployments
 -Difference between development and production environments
 -Role of reverse proxy in real-world systems
@@ -505,7 +505,7 @@ Removed:
 -Validating deployments before cleanup
 -Understanding when to decommission infrastructure
 
-### 🚀 Outcome
+### Outcome
 -A secure and production-ready deployment architecture
 -Cleaned cloud environment with no unnecessary resources
 -Cost-optimized infrastructure usage
@@ -514,7 +514,7 @@ Removed:
 ---
 
 
-# 🎯 Final Outcome
+# Final Outcome
 
 This project demonstrates a **complete DevOps lifecycle**, including:
 
@@ -529,7 +529,7 @@ This project demonstrates a **complete DevOps lifecycle**, including:
 
 ---
 
-# 💼 Key Highlights
+# Key Highlights
 
 - Built and deployed a full-stack application using Docker
 - Implemented CI/CD pipeline with Jenkins
@@ -544,7 +544,7 @@ This project demonstrates a **complete DevOps lifecycle**, including:
 
 ---
 
-## 📈 Impact
+## Impact
 
 This project demonstrates practical DevOps skills required in real-world environments, including automation, deployment, and debugging of distributed systems.
 

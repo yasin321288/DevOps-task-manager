@@ -7,7 +7,7 @@ export default function Home() {
   const [title, setTitle] = useState("");
 
   // ✅ Dynamic API URL (IMPORTANT FIX)
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL!;
+  const API_BASE = "/api";
 
   const fetchTasks = async () => {
     try {

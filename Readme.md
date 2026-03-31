@@ -7,6 +7,7 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 # 📌 Phase 1: Basic Setup
 
 ### ✅ Implementations
+
 - Built frontend using Next.js
 - Built backend using Node.js (Express)
 - Created REST API for task management
@@ -15,15 +16,19 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 ### 📸 Screenshots
 
 #### Frontend Running
+
 ![Frontend](docs/phase1/frontend-running.png)
 
 #### Backend Running
+
 ![Backend](docs/phase1/backend-running.png)
 
 #### API Test
+
 ![API](docs/phase1/api-test.png)
 
 #### Full App Working
+
 ![App](docs/phase1/full-app-working.png)
 
 ---
@@ -31,6 +36,7 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 # 📌 Phase 2: Backend Refactoring & Persistence
 
 ### ✅ Implementations
+
 - Refactored backend into MVC structure (controllers, routes)
 - Implemented file-based persistence using JSON
 - Ensured tasks persist after server restart
@@ -38,12 +44,15 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 ### 📸 Screenshots
 
 #### Backend Structure
+
 ![Structure](docs/phase2/backend-structure.png)
 
 #### Data Persistence
+
 ![Data](docs/phase2/data-persistence.png)
 
 #### Persistent App State
+
 ![App](docs/phase2/app-persistent.png)
 
 ---
@@ -51,6 +60,7 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 # 📌 Phase 3: Dockerization 🐳
 
 ### ✅ Implementations
+
 - Containerized frontend and backend using Docker
 - Created separate Dockerfiles for both services
 - Built Docker images and ran containers locally
@@ -58,9 +68,11 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 ### 📸 Screenshots
 
 #### Backend Container Running
+
 ![Backend Container](docs/phase3/backend-container.png)
 
 #### Frontend Container Running
+
 ![Frontend Container](docs/phase3/frontend-container.png)
 
 ---
@@ -72,6 +84,7 @@ A production-ready full-stack application demonstrating **Docker containerizatio
 While building the frontend Docker image, the build failed due to incompatible Node.js version.
 
 ### 📸 Error Screenshot
+
 ![Docker Build Error](docs/phase3/frontend-error.png)
 
 ---
@@ -83,6 +96,7 @@ The Dockerfile was using an outdated base image:
 ```Dockerfile
 FROM node:18
 ```
+
 However, the installed Next.js version required:
 Node.js >= 20.9.0
 
@@ -101,6 +115,7 @@ After rebuilding the Docker image, the application built and ran successfully.
 # 📌 Phase 4: Docker Compose (Multi-Container Setup)
 
 ### ✅ Implementations
+
 - Created docker-compose.yml to manage multiple services
 - Connected frontend and backend containers using Docker network
 - Enabled inter-service communication using service names
@@ -109,12 +124,15 @@ After rebuilding the Docker image, the application built and ran successfully.
 ### 📸 Screenshots
 
 #### Docker Compose Running
+
 ![Compose](docs/phase4/docker-compose-running.png)
 
 #### Full System Working
+
 ![System](docs/phase4/full-system-working.png)
 
 #### Containers Running
+
 ![Containers](docs/phase4/containers.png)
 
 ---
@@ -122,6 +140,7 @@ After rebuilding the Docker image, the application built and ran successfully.
 # 📌 Phase 5: AWS EC2 Deployment (Cloud Setup)
 
 ### 🎯 Objective
+
 Deploy the containerized full-stack application to a cloud environment and make it accessible over the internet.
 
 ### ✅ Implementations
@@ -145,33 +164,39 @@ Deploy the containerized full-stack application to a cloud environment and make 
 
 http://13.232.56.252:3000
 
-
 ### 📸 Screenshots
 
 #### 🔹 EC2 Instance Running
+
 ![EC2](docs/phase5/ec2-running.png)
 
 #### 🔹 Docker Installed
+
 ![Docker](docs/phase5/docker-installed.png)
 
 #### 🔹 Docker Compose Installed
+
 ![Compose](docs/phase5/docker-compose-installed.png)
 
 #### 🔹 Repository Cloned
+
 ![Repo](docs/phase5/repo-cloned.png)
 
 #### 🔹 Security Group Configuration
+
 ![Security](docs/phase5/security-group-fixed.png)
 
 #### 🔹 Key Pair Setup
+
 ![KeyPair](docs/phase5/keypair.png)
 
 #### 🔹 Running Containers
+
 ![Containers](docs/phase5/containers-running.png)
 
 #### 🔹 Live Application
-![Live](docs/phase5/live-app.png)
 
+![Live](docs/phase5/live-app.png)
 
 ### ⚠️ Challenges Faced
 
@@ -179,7 +204,7 @@ http://13.232.56.252:3000
 - Encountered Git submodule issue where frontend was treated as a separate repository
 - Resolved by removing nested `.git` and re-adding frontend as a normal directory
 - Handled OS-specific command differences (Linux vs PowerShell)
-b
+  b
 
 ### 💡 Key Learnings
 
@@ -194,9 +219,11 @@ b
 # 📌 Phase 6: NGINX Reverse Proxy (Production Routing)
 
 ### objective
+
 Convert the application from a development setup (multiple exposed ports) into a production-ready architecture using NGINX as a reverse proxy, providing a single public entry point.
 
 ### Implementations
+
 -Installed and configured NGINX on EC2 instance
 -Set up reverse proxy to route:
 / → Frontend (Next.js running on port 3000)
@@ -207,9 +234,11 @@ Convert the application from a development setup (multiple exposed ports) into a
 -Verified end-to-end communication through NGINX
 
 ### 🌐 Live Application
+
 http://3.110.41.183
 
 ### 📸 Screenshots
+
 ####🔹 NGINX Installed
 ![NGINX](docs/phase6/nginx-installed.png)
 
@@ -226,6 +255,7 @@ http://3.110.41.183
 ![NGINX](docs/phase6/final-app-nginx.png)
 
 ### ⚠️ Challenges Faced
+
 -Faced issue where frontend could not fetch data due to incorrect API base URL
 -Encountered environment variable conflicts in Docker setup
 -Observed Cannot GET /api confusion due to missing root route in backend
@@ -233,7 +263,7 @@ http://3.110.41.183
 ### 🔍 Fixes Applied
 
 -Replaced API base URL with:
-   const API_BASE = "/api";
+const API_BASE = "/api";
 -Removed unnecessary environment variables from docker-compose.yml
 -Configured NGINX reverse proxy correctly for / and /api routes
 -Used git reset --hard to resolve EC2 vs GitHub sync issues
@@ -244,6 +274,7 @@ http://3.110.41.183
     docker-compose up --build -d
 
 ### 💡 Key Learnings
+
 -Understanding of reverse proxy architecture using NGINX
 -Difference between development vs production deployments
 -Importance of routing and API abstraction (/api)
@@ -251,6 +282,108 @@ http://3.110.41.183
 -Real-world debugging of deployment, networking, and Git conflicts
 -Separation of application layer and infrastructure layer
 
-### 🧠 Architecture After Phase 6 
+### 🧠 Architecture After Phase 6
 
 ![NGINX](docs/phase6/architechture.png)
+
+---
+
+# 📌 Phase 7: Jenkins CI/CD with Docker Hub
+
+### Objective
+
+Automate the build and deployment process using Jenkins by integrating Docker and Docker Hub to achieve a complete CI/CD pipeline.
+
+### Implementation
+
+-Installed Jenkins locally using Docker
+-Configured Jenkins pipeline for CI/CD
+-Connected Jenkins with GitHub repository
+-Built Docker images for frontend and backend services
+-Tagged images using Docker Hub naming conventions
+-Pushed Docker images to Docker Hub
+-Deployed application using docker-compose via Jenkins
+-Enabled Jenkins to access Docker using docker.sock
+-Installed docker-compose inside Jenkins container
+-Handled container lifecycle during deployment
+
+### ⚙️ CI/CD Flow
+
+GitHub → Jenkins → Build → Docker Hub → Deploy Containers
+
+### 📸 Screenshots
+
+#### 🔹 Docker Installed inside Jenkins
+
+####🔹 Docker Hub Login
+![DockerHub](docs/phase7/docker-login.png)
+
+####🔹 Docker Hub Repository Created
+![DockerHub](docs/phase7/dockerhub-repo-created.png)
+
+####🔹 Docker Images Pushed
+![DockerHub](docs/phase7/dockerhub-push-done.png)
+
+####🔹 Jenkins Getting Started
+![Jenkins](docs/phase7/jenkins-getting-started.png)
+
+####🔹 Jenkins Container Running
+![Jenkins](docs/phase7/jenkins-container-running.png)
+
+####🔹 Jenkins UI
+![Jenkins](docs/phase7/jenkins-ui.png)
+
+####🔹 Jenkins Pipeline Success
+![Jenkins](docs/phase7/jenkins-pipeline-success.png)
+
+####🔹 Final Running Containers After Jenkins Build
+![Jenkins](docs/phase7/final-running-containers-after-jenkins-build.png)
+
+### ⚠️ Challenges Faced
+
+-Jenkins could not connect to Docker daemon
+-docker-compose command not found inside Jenkins container
+-Permission denied error while accessing docker.sock
+-Port conflicts due to already running containers
+-Git branch mismatch issue (master vs main)
+-Docker images not tagged correctly for Docker Hub
+
+### 🔍 Fixes Applied
+
+-Connected Jenkins to host Docker using docker.sock:
+-v /var/run/docker.sock:/var/run/docker.sock
+
+-Installed docker-compose inside Jenkins container:
+apt update
+apt install docker-compose -y
+
+-Fixed permission issues:
+chmod 666 /var/run/docker.sock
+
+-Resolved branch issue:
+git branch: 'main', url: 'repo-url'
+
+-Handled port conflicts:
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+
+-Improved deployment step in pipeline:
+docker-compose down --remove-orphans || true
+docker-compose up -d --build
+
+### 💡 Key Learnings
+
+-Understanding of CI/CD pipeline using Jenkins
+-Integration of Docker with Jenkins using docker.sock
+-Difference between building locally vs inside CI environment
+-Importance of container cleanup in deployment pipelines
+-Handling real-world DevOps issues like permissions and networking
+-Docker image lifecycle (build → tag → push → deploy)
+-Debugging pipeline failures step-by-step
+
+### 🚀 Outcome
+
+-A fully automated CI/CD pipeline
+-Docker images built and pushed to Docker Hub
+-Application deployed automatically using Jenkins
+-Production-like workflow achieved locally

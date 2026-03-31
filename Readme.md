@@ -75,6 +75,7 @@ Application Running 🚀
 
 ![App](docs/phase9/ci-cd-flow.png)
 
+
 ---
 
 # 📌 Phase 1: Basic Setup

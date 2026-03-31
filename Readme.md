@@ -267,7 +267,7 @@ Deploy the containerized full-stack application to a cloud environment and make 
 - Handled OS-specific command differences (Linux vs PowerShell)
   b
 
-### 💡 Key Learnings
+### Key Learnings
 
 - Real-world cloud deployment using AWS EC2
 - Dockerized application deployment in production-like environment

@@ -1,15 +1,14 @@
-version: "3.8"
-
 services:
   backend:
     build: ./backend
+    image: yasin056/devops-backend:latest
     ports:
       - "5000:5000"
 
   frontend:
     build: ./frontend
+    image: yasin056/devops-frontend:latest
     ports:
       - "3000:3000"
- 
     depends_on:
       - backend

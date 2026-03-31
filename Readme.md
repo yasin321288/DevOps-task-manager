@@ -124,8 +124,6 @@ After rebuilding the Docker image, the application built and ran successfully.
 ### 🎯 Objective
 Deploy the containerized full-stack application to a cloud environment and make it accessible over the internet.
 
----
-
 ### ✅ Implementations
 
 - Created an AWS EC2 instance (Ubuntu, t3.micro - Free Tier)
@@ -143,12 +141,9 @@ Deploy the containerized full-stack application to a cloud environment and make 
 - Verified inter-container communication (frontend ↔ backend)
 - Exposed application via EC2 public IP
 
----
-
 ### 🌐 Live Application
 
 http://13.232.56.252:3000
-
 
 
 ### 📸 Screenshots
@@ -193,3 +188,69 @@ b
 - Importance of correct Git structure (avoiding submodules unintentionally)
 - Networking concepts (ports, security groups, public access)
 - Debugging deployment issues in remote environments
+
+---
+
+# 📌 Phase 6: NGINX Reverse Proxy (Production Routing)
+
+### objective
+Convert the application from a development setup (multiple exposed ports) into a production-ready architecture using NGINX as a reverse proxy, providing a single public entry point.
+
+### Implementations
+-Installed and configured NGINX on EC2 instance
+-Set up reverse proxy to route:
+/ → Frontend (Next.js running on port 3000)
+/api → Backend (Node.js running on port 5000)
+-Eliminated direct exposure of backend service
+-Updated frontend API calls to use /api instead of hardcoded backend URL
+-Enabled clean URL access via port 80 (no port in browser)
+-Verified end-to-end communication through NGINX
+
+### 🌐 Live Application
+http://3.110.41.183
+
+### 📸 Screenshots
+####🔹 NGINX Installed
+![NGINX](docs/phase6/nginx-installed.png)
+
+####🔹 NGINX Welcome Page
+![NGINX](docs/phase6/nginx-welcome.png)
+
+####🔹 NGINX Configuration
+![NGINX](docs/phase6/nginx-config.png)
+
+####🔹 API Working via NGINX
+![NGINX](docs/phase6/api-working.png)
+
+####🔹 Final Application (No Port Access)
+![NGINX](docs/phase6/final-app-nginx.png)
+
+### ⚠️ Challenges Faced
+-Faced issue where frontend could not fetch data due to incorrect API base URL
+-Encountered environment variable conflicts in Docker setup
+-Observed Cannot GET /api confusion due to missing root route in backend
+
+### 🔍 Fixes Applied
+
+-Replaced API base URL with:
+   const API_BASE = "/api";
+-Removed unnecessary environment variables from docker-compose.yml
+-Configured NGINX reverse proxy correctly for / and /api routes
+-Used git reset --hard to resolve EC2 vs GitHub sync issues
+
+-Rebuilt containers using:
+
+    docker-compose down
+    docker-compose up --build -d
+
+### 💡 Key Learnings
+-Understanding of reverse proxy architecture using NGINX
+-Difference between development vs production deployments
+-Importance of routing and API abstraction (/api)
+-Handling environment variables in containerized applications
+-Real-world debugging of deployment, networking, and Git conflicts
+-Separation of application layer and infrastructure layer
+
+### 🧠 Architecture After Phase 6 
+
+![NGINX](docs/phase6/architechture.png)

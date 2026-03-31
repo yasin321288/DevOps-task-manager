@@ -7,7 +7,7 @@ export default function Home() {
   const [title, setTitle] = useState("");
 
   // ✅ Dynamic API URL (IMPORTANT FIX)
-  const API_BASE = "/api";
+  const API_BASE = "http://localhost:5000";
 
   const fetchTasks = async () => {
     try {
